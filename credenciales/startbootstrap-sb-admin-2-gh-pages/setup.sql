@@ -1,0 +1,85 @@
+CREATE DATABASE IF NOT EXISTS credenciales;
+USE credenciales;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(50) DEFAULT 'Usuario',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL DEFAULT NULL
+);
+
+INSERT INTO users (name, email, password, role) VALUES ('Administrador', 'admin@example.com', '$2y$10$.cyWZpTE8nqQTmoTpeFvQ.2LNOGX36EmvPAQZFLbQhwe4.1PShpIe', 'Administrador');
+
+CREATE TABLE IF NOT EXISTS servers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    provider VARCHAR(255) DEFAULT NULL,
+    ip_address VARCHAR(45) DEFAULT NULL,
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS credentials (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    server_id INT DEFAULT NULL,
+    service_name VARCHAR(255) NOT NULL,
+    type VARCHAR(100) NOT NULL,
+    url VARCHAR(255) DEFAULT NULL,
+    username VARCHAR(255) DEFAULT NULL,
+    password TEXT NOT NULL,
+    associated_email VARCHAR(255) DEFAULT NULL,
+    payment_date DATE DEFAULT NULL,
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS anydesk_accounts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    ip_address VARCHAR(45) NOT NULL,
+    password TEXT NOT NULL,
+    gmail_email VARCHAR(255) DEFAULT NULL,
+    gmail_password TEXT DEFAULT NULL,
+    nordvpn VARCHAR(255) DEFAULT NULL,
+    nordvpn_password TEXT DEFAULT NULL,
+    nord_dedicada_ip VARCHAR(45) DEFAULT NULL,
+    anydesk_email VARCHAR(255) DEFAULT NULL,
+    anydesk_email_password TEXT DEFAULT NULL,
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS documents (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    file_name VARCHAR(255) NOT NULL,
+    file_path VARCHAR(500) NOT NULL,
+    file_type VARCHAR(100) NOT NULL,
+    file_size BIGINT NOT NULL,
+    created_by INT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS audit_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT DEFAULT NULL,
+    user_name VARCHAR(255) DEFAULT NULL,
+    action VARCHAR(50) NOT NULL,
+    entity_type VARCHAR(50) NOT NULL,
+    entity_id INT DEFAULT NULL,
+    details TEXT,
+    ip_address VARCHAR(45) DEFAULT NULL,
+    user_agent TEXT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
