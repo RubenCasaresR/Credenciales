@@ -34,6 +34,7 @@ if (!userCan('payment_gateways', 'ver')) {
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="css/custom/dark-mode.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <script src="vendor/jquery/jquery.min.js"></script>
 </head>
 

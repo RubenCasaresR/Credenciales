@@ -1,5 +1,10 @@
 <?php
 session_start();
+require_once 'config.php';
+require_once 'includes/intranet_sso.php';
+
+// Puente SSO Fase 1: ?sso=token desde la intranet (pestaña nueva)
+credencialesTryIntranetSSO($pdo);
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
@@ -24,6 +29,7 @@ $isAdmin = ($_SESSION['user_role'] ?? '') === 'Administrador';
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="css/custom/dark-mode.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <script src="vendor/jquery/jquery.min.js"></script>
 </head>
 

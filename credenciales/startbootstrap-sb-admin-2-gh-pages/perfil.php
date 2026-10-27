@@ -34,6 +34,7 @@ try {
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="css/custom/dark-mode.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <script src="vendor/jquery/jquery.min.js"></script>
 </head>
 

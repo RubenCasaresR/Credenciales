@@ -6,7 +6,7 @@ $head_part = substr($original, 0, strpos($original, '<ul class="navbar-nav'));
 // Replace title
 $head_part = preg_replace('/<title>.*?<\/title>/', '<title>Credenciales - Dashboard</title>', $head_part);
 // Add jQuery early so inline scripts in topbar.php work
-$head_part = str_replace('</head>', '    <script src="vendor/jquery/jquery.min.js"></script>' . "\n" . '</head>', $head_part);
+$head_part = str_replace('</head>', '    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">' . "\n" . '    <script src="vendor/jquery/jquery.min.js"></script>' . "\n" . '</head>', $head_part);
 
 // Extract Dashboard Content
 $start_content = strpos($original, '<!-- Begin Page Content -->');

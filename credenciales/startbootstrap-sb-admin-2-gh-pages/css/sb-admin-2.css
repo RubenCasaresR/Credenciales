@@ -10434,8 +10434,8 @@ a:focus {
 }
 
 .sidebar.toggled {
-  width: 0 !important;
-  overflow: hidden;
+  overflow: visible;
+  width: 6.5rem !important;
 }
 
 .sidebar.toggled #sidebarToggle::after {
@@ -10445,6 +10445,18 @@ a:focus {
 }
 
 .sidebar.toggled .sidebar-card {
+  display: none;
+}
+
+.sidebar.toggled .nav-item .nav-link span {
+  display: none;
+}
+
+.sidebar.toggled .sidebar-heading {
+  display: none;
+}
+
+.sidebar.toggled hr.sidebar-divider {
   display: none;
 }
 
@@ -10605,8 +10617,7 @@ a:focus {
     width: 6.5rem;
   }
   .sidebar.toggled .nav-item .nav-link span {
-    font-size: 0.65rem;
-    display: block;
+    display: none;
   }
   .sidebar.toggled .nav-item .nav-link i {
     margin-right: 0;
@@ -10622,6 +10633,11 @@ a:focus {
   }
   .sidebar.toggled .sidebar-heading {
     text-align: center;
+    display: none;
+  }
+
+  .sidebar.toggled hr.sidebar-divider {
+    display: none;
   }
 }
 

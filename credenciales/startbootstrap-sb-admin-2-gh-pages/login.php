@@ -3,6 +3,13 @@ require_once 'includes/security.php';
 session_start();
 require 'config.php';
 sendSecurityHeaders();
+require_once 'includes/intranet_sso.php';
+
+// Puente SSO Fase 1: si viene de la intranet (?sso=token), entra sin password
+if (credencialesTryIntranetSSO($pdo) && !empty($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit;
+}
 
 $error = '';
 
@@ -75,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 
 </head>
 

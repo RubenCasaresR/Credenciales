@@ -115,8 +115,8 @@
     }
 
     &.toggled {
-        width: 0 !important;
-        overflow: hidden;
+        overflow: visible;
+        width: $sidebar-collapsed-width !important;
 
         #sidebarToggle::after {
             content: '\f105';
@@ -125,6 +125,18 @@
         }
 
         .sidebar-card {
+            display: none;
+        }
+
+        .nav-item .nav-link span {
+            display: none;
+        }
+
+        .sidebar-heading {
+            display: none;
+        }
+
+        hr.sidebar-divider {
             display: none;
         }
     }
@@ -311,8 +323,7 @@
                     width: $sidebar-collapsed-width;
 
                     span {
-                        font-size: 0.65rem;
-                        display: block;
+                        display: none;
                     }
 
                     i {
@@ -337,6 +348,11 @@
 
             .sidebar-heading {
                 text-align: center;
+                display: none;
+            }
+
+            hr.sidebar-divider {
+                display: none;
             }
         }
     }

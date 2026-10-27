@@ -42,6 +42,7 @@ if (!userCan('usuarios', 'ver')) {
 
 
     <!-- Custom styles for this page -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- SweetAlert2 -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">

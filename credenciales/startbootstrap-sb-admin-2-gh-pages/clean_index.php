@@ -7,6 +7,7 @@ $css_old = '    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>';
 $css_new = '    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- SweetAlert2 -->
